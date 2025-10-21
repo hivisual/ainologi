@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keeya's Apps Pricelist</title>
+    
+    <!-- Memuat Tailwind CSS untuk styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Memuat font Poppins dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Menggunakan font Poppins dan latar belakang cerah */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc; /* Warna latar belakang abu-abu sangat muda (cerah) */
+            color: #2d3748; /* Warna teks gelap */
+        }
+
+        /* Efek gradasi untuk judul utama */
+        .gradient-text {
+            background: linear-gradient(to right, #6d28d9, #db2777);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Style untuk animasi buka-tutup deskripsi */
+        .description-content {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1), 
+                        margin-top 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* State ketika deskripsi terbuka */
+        .description-content.open {
+            max-height: 1000px; /* Nilai besar untuk mengakomodasi konten apa pun */
+            margin-top: 1rem; /* 16px */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        
+        <!-- Judul Utama -->
+        <div class="text-center mb-16">
+            <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight gradient-text">
+                KEEYA'S APPS
+            </h1>
+        </div>
+
+        <!-- Grid Container untuk semua produk -->
+        <!-- 'items-start' ditambahkan agar kartu tidak ikut memanjang saat kartu lain terbuka -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-6 items-start">
+
+            <!-- === KARTU PRODUK: ChatGPT Plus === -->
+            <div class="bg-white rounded-2xl p-4 sm:p-5 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="https://placehold.co/32x32/10b981/ffffff?text=G" alt="ChatGPT Icon" class="w-8 h-8 rounded-lg flex-shrink-0">
+                    <h2 class="text-lg font-bold text-gray-800">ChatGPT Plus</h2>
+                </div>
+                <div class="text-sm space-y-3 text-gray-600 flex-grow">
+                    <div>
+                        <h3 class="font-semibold text-indigo-600">Sharing</h3>
+                        <ul class="mt-1 space-y-1.5">
+                            <li class="flex"><span>1 Bulan</span><span class="ml-auto font-medium text-gray-800">125k</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-indigo-600">Private</h3>
+                        <ul class="mt-1 space-y-1.5">
+                            <li class="flex"><span>1 Bulan</span><span class="ml-auto font-medium text-gray-800">355k</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="toggle-button text-sm font-medium text-indigo-600 hover:text-indigo-800 mt-4 text-left w-full">Lihat Detail</button>
+                <div class="description-content text-sm text-gray-500">
+                    <p>Akses model AI tercanggih dari OpenAI. Dapatkan respons lebih cepat, akses prioritas ke fitur baru seperti GPT-4o, dan kemampuan analisis data, pembuatan gambar, serta browsing internet.</p>
+                </div>
+            </div>
+            <!-- === END KARTU === -->
+
+            <!-- === KARTU PRODUK: Claude Pro === -->
+            <div class="bg-white rounded-2xl p-4 sm:p-5 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="https://placehold.co/32x32/f59e0b/ffffff?text=C" alt="Claude Icon" class="w-8 h-8 rounded-lg flex-shrink-0">
+                    <h2 class="text-lg font-bold text-gray-800">Claude Pro</h2>
+                </div>
+                <div class="text-sm space-y-3 text-gray-600 flex-grow">
+                    <div>
+                        <h3 class="font-semibold text-indigo-600">Sharing</h3>
+                        <ul class="mt-1 space-y-1.5">
+                            <li class="flex"><span>1 Bulan</span><span class="ml-auto font-medium text-gray-800">120k</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-indigo-600">Private</h3>
+                        <ul class="mt-1 space-y-1.5">
+                            <li class="flex"><span>1 Bulan</span><span class="ml-auto font-medium text-gray-800">350k</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="toggle-button text-sm font-medium text-indigo-600 hover:text-indigo-800 mt-4 text-left w-full">Lihat Detail</button>
+                <div class="description-content text-sm text-gray-500">
+                    <p>AI dari Anthropic yang dirancang untuk tugas-tugas kompleks dan analisis dokumen panjang. Unggul dalam pemahaman konteks, ringkasan, dan penulisan kreatif.</p>
+                </div>
+            </div>
+            <!-- === END KARTU === -->
+
+            <!-- === KARTU PRODUK: Copilot Pro === -->
+            <div class="bg-white rounded-2xl p-4 sm:p-5 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="https://placehold.co/32x32/3b82f6/ffffff?text=C" alt="Copilot Icon" class="w-8 h-8 rounded-lg flex-shrink-0">
+                    <h2 class="text-lg font-bold text-gray-800">Copilot Pro</h2>
+                </div>
+                <div class="text-sm space-y-3 text-gray-600 flex-grow">
+                    <div>
+                        <h3 class="font-semibold text-indigo-600">Sharing</h3>
+                        <ul class="mt-1 space-y-1.5">
+                            <li class="flex"><span>1 Bulan</span><span class="ml-auto font-medium text-gray-800">115k</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-indigo-600">Private</h3>
+                        <ul class="mt-1 space-y-1.5">
+                            <li class="flex"><span>1 Bulan</span><span class="ml-auto font-medium text-gray-800">345k</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="toggle-button text-sm font-medium text-indigo-600 hover:text-indigo-800 mt-4 text-left w-full">Lihat Detail</button>
+                <div class="description-content text-sm text-gray-500">
+                    <p>Asisten AI dari Microsoft yang terintegrasi di seluruh ekosistemnya. Dapatkan akses prioritas ke model terbaru OpenAI dan integrasi canggih di aplikasi Office.</p>
+                </div>
+            </div>
+            <!-- === END KARTU === -->
+
+            <!-- === KARTU PRODUK: Gemini Advanced === -->
+            <div class="bg-white rounded-2xl p-4 sm:p-5 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="https://placehold.co/32x32/6d28d9/ffffff?text=G" alt="Gemini Icon" class="w-8 h-8 rounded-lg flex-shrink-0">
+                    <h2 class="text-lg font-bold text-gray-800">Gemini Advanced</h2>
+                </div>
+                <div class="text-sm space-y-3 text-gray-600 flex-grow">
+                    <div>
+                        <h3 class="font-semibold text-indigo-600">Sharing</h3>
+                        <ul class="mt-1 space-y-1.5">
+                            <li class="flex"><span>1 Bulan</span><span class="ml-auto font-medium text-gray-800">130k</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-indigo-600">Private</h3>
+                        <ul class="mt-1 space-y-1.5">
+                            <li class="flex"><span>1 Bulan</span><span class="ml-auto font-medium text-gray-800">350k</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="toggle-button text-sm font-medium text-indigo-600 hover:text-indigo-800 mt-4 text-left w-full">Lihat Detail</button>
+                <div class="description-content text-sm text-gray-500">
+                    <p>Akses ke model AI tercanggih dari Google, 1.5 Pro. Nikmati kemampuan multimodal dan integrasi mendalam dengan layanan Google seperti Gmail, Docs, dan Drive.</p>
+                </div>
+            </div>
+            <!-- === END KARTU === -->
+
+            <!-- === KARTU PRODUK: Perplexity Pro === -->
+            <div class="bg-white rounded-2xl p-4 sm:p-5 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="https://placehold.co/32x32/059669/ffffff?text=P" alt="Perplexity Icon" class="w-8 h-8 rounded-lg flex-shrink-0">
+                    <h2 class="text-lg font-bold text-gray-800">Perplexity Pro</h2>
+                </div>
+                <div class="text-sm space-y-3 text-gray-600 flex-grow">
+                    <div>
+                        <h3 class="font-semibold text-indigo-600">Sharing</h3>
+                        <ul class="mt-1 space-y-1.5">
+                            <li class="flex"><span>1 Bulan</span><span class="ml-auto font-medium text-gray-800">110k</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-indigo-600">Private</h3>
+                        <ul class="mt-1 space-y-1.5">
+                            <li class="flex"><span>1 Bulan</span><span class="ml-auto font-medium text-gray-800">340k</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="toggle-button text-sm font-medium text-indigo-600 hover:text-indigo-800 mt-4 text-left w-full">Lihat Detail</button>
+                <div class="description-content text-sm text-gray-500">
+                    <p>Mesin penjawab bertenaga AI yang memberikan jawaban langsung dengan kutipan sumber yang akurat. Cocok untuk riset dan menemukan informasi terverifikasi.</p>
+                </div>
+            </div>
+            <!-- === END KARTU === -->
+
+            <!-- === KARTU PRODUK: Grok (X Premium+) === -->
+            <div class="bg-white rounded-2xl p-4 sm:p-5 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="https://placehold.co/32x32/1e293b/ffffff?text=X" alt="Grok Icon" class="w-8 h-8 rounded-lg flex-shrink-0">
+                    <h2 class="text-lg font-bold text-gray-800">Grok (X Premium+)</h2>
+                </div>
+                <div class="text-sm space-y-3 text-gray-600 flex-grow">
+                    <div>
+                        <h3 class="font-semibold text-indigo-600">Sharing</h3>
+                        <ul class="mt-1 space-y-1.5">
+                            <li class="flex"><span>1 Bulan</span><span class="ml-auto font-medium text-gray-800">95k</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-indigo-600">Private</h3>
+                        <ul class="mt-1 space-y-1.5">
+                            <li class="flex"><span>1 Bulan</span><span class="ml-auto font-medium text-gray-800">275k</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="toggle-button text-sm font-medium text-indigo-600 hover:text-indigo-800 mt-4 text-left w-full">Lihat Detail</button>
+                <div class="description-content text-sm text-gray-500">
+                    <p>AI dari xAI yang memiliki akses real-time ke informasi di platform X. Dikenal dengan gayanya yang humoris, cocok untuk mendapatkan perspektif unik dan terkini.</p>
+                </div>
+            </div>
+            <!-- === END KARTU === -->
+
+        </div>
+
+        <!-- Footer Banners -->
+        <div class="mt-16 space-y-4 text-center">
+            <div class="inline-block bg-white rounded-full py-3 px-6 shadow-md">
+                <p class="font-semibold text-sm sm:text-base text-gray-700">full garansi selama menaati syarat dan ketentuan</p>
+            </div>
+            <br>
+            <div class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full py-3 px-8 shadow-lg">
+                <p class="font-bold text-sm sm:text-base">PAYMENT: ALL-EWALLET & QRIS</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menambahkan fungsionalitas untuk tombol "Lihat Detail"
+        document.querySelectorAll('.toggle-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Mencari konten deskripsi yang berhubungan (elemen berikutnya)
+                const description = button.nextElementSibling;
+                if (description && description.classList.contains('description-content')) {
+                    // Toggle class 'open'
+                    description.classList.toggle('open');
+                    // Mengubah teks tombol
+                    button.textContent = description.classList.contains('open') ? 'Sembunyikan' : 'Lihat Detail';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
