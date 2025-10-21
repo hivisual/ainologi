@@ -16,13 +16,17 @@
 <body>
 
     <div class="header">
-        <h1>Merixa</h1>
+        <a href="../" class="header-link">
+            <h1>Merixa</h1>
+        </a>
         <p>ALL APP PREMIUM READY</p>
     </div>
 
     <div class="pricelist-grid">
 
         <div class="product-card">
+            <div class="bestseller-badge">Populer</div>
+            
             <div class="product-header">
                 <img src="../assets/img/chatgpt.svg" alt="ChatGPT Logo" class="product-logo">
                 <span class="product-name">ChatGPT Plus</span>
@@ -37,7 +41,17 @@
                     <li>1 Bulan : 355k</li>
                 </ul>
             </div>
+            <div class="product-footer">
+                <a class="details-toggle">
+                    <span>Lihat Detail</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+            </div>
+            <div class="product-details">
+                <p>Akses model AI tercanggih dari OpenAI. Dapatkan respons lebih cepat, akses prioritas ke fitur baru seperti GPT-4o, dan kemampuan analisis data, pembuatan gambar, serta browsing internet. Sangat cocok untuk para profesional dan pelajar yang membutuhkan asisten AI serba bisa.</p>
+            </div>
         </div>
+
         <div class="product-card">
             <div class="product-header">
                 <img src="../assets/img/claude.svg" alt="Claude Logo" class="product-logo">
@@ -53,7 +67,17 @@
                     <li>1 Bulan : 350k</li>
                 </ul>
             </div>
+            <div class="product-footer">
+                <a class="details-toggle">
+                    <span>Lihat Detail</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+            </div>
+            <div class="product-details">
+                <p>AI dari Anthropic yang dirancang untuk tugas-tugas kompleks dan analisis dokumen panjang. Unggul dalam pemahaman konteks, ringkasan, dan penulisan kreatif dengan jendela konteks yang besar.</p>
+            </div>
         </div>
+
         <div class="product-card">
             <div class="product-header">
                 <img src="../assets/img/copilot.svg" alt="Copilot Logo" class="product-logo">
@@ -69,7 +93,17 @@
                     <li>1 Bulan : 345k</li>
                 </ul>
             </div>
+            <div class="product-footer">
+                <a class="details-toggle">
+                    <span>Lihat Detail</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+            </div>
+            <div class="product-details">
+                <p>Asisten AI dari Microsoft yang terintegrasi di seluruh ekosistemnya. Dapatkan akses prioritas ke model terbaru OpenAI dan integrasi canggih di aplikasi Office (Word, Excel, PowerPoint).</p>
+            </div>
         </div>
+
         <div class="product-card">
             <div class="product-header">
                 <img src="../assets/img/gemini.svg" alt="Gemini Logo" class="product-logo">
@@ -85,7 +119,17 @@
                     <li>1 Bulan : 350k</li>
                 </ul>
             </div>
+            <div class="product-footer">
+                <a class="details-toggle">
+                    <span>Lihat Detail</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+            </div>
+            <div class="product-details">
+                <p>Akses ke model AI tercanggih dari Google, 1.5 Pro. Nikmati kemampuan multimodal, jendela konteks 1 juta token, dan integrasi mendalam dengan layanan Google seperti Gmail, Docs, dan Drive.</p>
+            </div>
         </div>
+        
         <div class="product-card">
             <div class="product-header">
                 <img src="../assets/img/perplexity.svg" alt="Perplexity Logo" class="product-logo">
@@ -101,7 +145,17 @@
                     <li>1 Bulan : 340k</li>
                 </ul>
             </div>
+            <div class="product-footer">
+                <a class="details-toggle">
+                    <span>Lihat Detail</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+            </div>
+            <div class="product-details">
+                <p>Mesin penjawab bertenaga AI yang memberikan jawaban langsung dengan kutipan sumber yang akurat. Cocok untuk riset, belajar, dan menemukan informasi terverifikasi dengan cepat.</p>
+            </div>
         </div>
+
         <div class="product-card">
             <div class="product-header">
                 <img src="../assets/img/grok.svg" alt="Grok Logo" class="product-logo">
@@ -116,6 +170,15 @@
                 <ul>
                     <li>1 Bulan : 275k</li>
                 </ul>
+            </div>
+            <div class="product-footer">
+                <a class="details-toggle">
+                    <span>Lihat Detail</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+            </div>
+            <div class="product-details">
+                <p>AI dari xAI yang memiliki akses real-time ke informasi di platform X (Twitter). Dikenal dengan gayanya yang humoris dan sedikit memberontak, cocok untuk mendapatkan perspektif unik dan terkini.</p>
             </div>
         </div>
         
@@ -137,6 +200,30 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggles = document.querySelectorAll('.details-toggle');
+
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', function () {
+                    const details = this.parentElement.nextElementSibling;
+                    details.classList.toggle('expanded');
+                    
+                    const icon = this.querySelector('i');
+                    const textSpan = this.querySelector('span');
+                    
+                    if (details.classList.contains('expanded')) {
+                        textSpan.textContent = 'Sembunyikan';
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        textSpan.textContent = 'Lihat Detail';
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
