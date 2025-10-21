@@ -1,0 +1,38 @@
+# Konfigurasi backend untuk otentikasi via GitHub
+backend:
+  name: github
+  repo: hivisual/ainologi  # <-- GANTI INI! Contoh: merixa-id/website-pricelist
+  branch: main # atau master, sesuaikan dengan nama branch utama Anda
+
+# Lokasi penyimpanan media/gambar yang di-upload melalui CMS
+media_folder: "assets/img" # Path tempat menyimpan gambar
+public_folder: "/assets/img" # Path yang akan digunakan di website
+
+# Mendefinisikan koleksi data yang bisa diedit
+collections:
+  - name: "produk" # Nama internal untuk koleksi ini
+    label: "Produk" # Nama yang muncul di sidebar admin
+    label_singular: "Produk" # Nama untuk satu item
+    
+    # Karena kita mengedit satu file, bukan folder, gunakan tipe 'file'
+    files:
+      - label: "Daftar Harga Produk"
+        name: "pricelist"
+        file: "products.json" # Path ke file "database" Anda
+        
+        # Mendefinisikan field-field yang ada di dalam file JSON
+        fields:
+          - label: "Daftar Produk"
+            name: "products"
+            widget: "list" # Karena data utama adalah sebuah array/list
+            fields: # Field untuk setiap item di dalam list
+              - { label: "Nama Produk", name: "name", widget: "string" }
+              - { label: "Logo Produk", name: "logo", widget: "image" }
+              - label: "Detail Harga"
+                name: "prices"
+                widget: "list"
+                fields:
+                  - { label: "Tipe", name: "type", widget: "string", hint: "Contoh: Sharing atau Private" }
+                  - { label: "Durasi", name: "duration", widget: "string", hint: "Contoh: 1 Bulan" }
+                  - { label: "Harga", name: "price", widget: "string", hint: "Contoh: 125k" }
+              - { label: "Catatan (Opsional)", name: "notes", widget: "string", required: false }
