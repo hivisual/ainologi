@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Price List Minimalist</title>
+<title>Ainologi Store - Price List</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
@@ -20,21 +20,9 @@
   }
 
   /* Header Halaman */
-  .page-header {
-    text-align: center;
-  }
-
-  .page-header h1 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin: 0 0 8px 0;
-  }
-
-  .page-header p {
-    font-size: 0.95rem;
-    color: #555;
-    margin: 0;
-  }
+  .page-header { text-align: center; }
+  .page-header h1 { font-size: 1.8rem; font-weight: 800; margin: 0 0 8px 0; }
+  .page-header p { font-size: 0.95rem; color: #555; margin: 0; }
 
   /* Kartu Pricelist */
   .menu-card {
@@ -56,150 +44,38 @@
     margin-bottom: 30px;
   }
   
-  /* ========== PERUBAHAN DI SINI ========== */
-  .product-block {
-    margin-bottom: 45px; /* Jarak antar produk diperlebar */
-  }
-  .product-block:last-child {
-      margin-bottom: 0;
-  }
-
-  .product-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
-  }
-
-  .product-icon {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-  }
-
-  .product-title {
-    font-size: 1rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: #111;
-  }
-
-  .divider {
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.8);
-    margin-bottom: 10px;
-  }
-
-  .price-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.88rem;
-    color: #111;
-    padding: 4px 0;
-  }
-
-  .price-item span:first-child {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: #333;
-  }
-
-  .price-item span:last-child {
-    font-weight: 600;
-  }
-
-  details {
-    margin-top: 15px;
-  }
+  /* Elemen Produk Dinamis */
+  .product-block { margin-bottom: 45px; }
+  .product-block:last-child { margin-bottom: 0; }
+  .product-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .product-icon { width: 20px; height: 20px; flex-shrink: 0; }
+  .product-title { font-size: 1rem; font-weight: 800; text-transform: uppercase; color: #111; }
+  .divider { height: 1px; background-color: rgba(0, 0, 0, 0.8); margin-bottom: 10px; }
+  .price-item { display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; color: #111; padding: 4px 0; }
+  .price-item span:first-child { text-transform: uppercase; font-size: 0.8rem; color: #333; }
+  .price-item span:last-child { font-weight: 600; }
   
-  /* ========== PERUBAHAN DI SINI ========== */
-  summary {
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    color: #555;
-    list-style: none;
-  }
-  
-  summary::-webkit-details-marker {
-      display: none;
-  }
-
-  summary::before {
-      content: '+';
-      margin-right: 8px;
-      font-weight: 800;
-  }
-
-  details[open] > summary::before {
-      content: '−';
-  }
-
-  .details-content {
-      padding: 10px 0 5px 20px;
-      font-size: 0.82rem;
-      color: #444;
-      line-height: 1.6;
-      border-left: 2px solid #eee;
-      margin-top: 8px;
-  }
-  
-  .details-content ul {
-      padding-left: 20px;
-      margin: 10px 0 0 0;
-  }
+  /* Details & Summary */
+  details { margin-top: 15px; }
+  summary { cursor: pointer; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; color: #555; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '+'; margin-right: 8px; font-weight: 800; }
+  details[open] > summary::before { content: '−'; }
+  .details-content { padding: 10px 0 5px 20px; font-size: 0.82rem; color: #444; line-height: 1.6; border-left: 2px solid #eee; margin-top: 8px; }
 
   /* Footer Halaman */
-  .page-footer {
-      width: 100%;
-      max-width: 340px;
-      text-align: center;
-  }
-
-  .footer-title {
-      font-size: 0.9rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-  }
-  
-  .cta-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-  }
-
+  .page-footer { width: 100%; max-width: 340px; text-align: center; }
+  .footer-title { font-size: 0.9rem; font-weight: 800; text-transform: uppercase; margin-bottom: 20px; }
+  .cta-buttons { display: flex; flex-direction: column; gap: 12px; }
   .cta-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #fff;
-      border: 1px solid #111;
-      box-shadow: 3px 3px 0 #111;
-      transition: all 0.15s ease;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 12px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    color: #fff; border: 1px solid #111; box-shadow: 3px 3px 0 #111; transition: all 0.15s ease;
   }
-
-  .cta-button:hover {
-      transform: translate(3px, 3px);
-      box-shadow: 0 0 0 #111;
-  }
-
+  .cta-button:hover { transform: translate(3px, 3px); box-shadow: 0 0 0 #111; }
   .cta-button.whatsapp { background-color: #25D366; }
   .cta-button.telegram { background-color: #0088cc; }
-  
-  .cta-button svg {
-      width: 20px;
-      height: 20px;
-      fill: #fff;
-  }
+  .cta-button svg { width: 20px; height: 20px; fill: #fff; }
 </style>
 </head>
 <body>
@@ -211,73 +87,8 @@
 
 <div class="menu-card">
   <h1 class="card-title">PRICE LIST</h1>
-
-  <div class="product-block">
-    <div class="product-header">
-      <img src="../assets/img/chatgpt.svg" alt="ChatGPT Icon" class="product-icon">
-      <div class="product-title">ChatGPT Plus</div>
-    </div>
-    <div class="divider"></div>
-    <div class="price-item"><span>Private Account</span><span>150k</span></div>
-    <div class="price-item"><span>Sharing Account</span><span>50k</span></div>
-    <details>
-      <summary>Detail</summary>
-      <div class="details-content">Garansi penuh selama masa aktif. Dilarang mengubah data login.</div>
-    </details>
-  </div>
   
-  <div class="product-block">
-    <div class="product-header">
-      <img src="../assets/img/claude.svg" alt="Claude Icon" class="product-icon">
-      <div class="product-title">Claude Pro</div>
-    </div>
-    <div class="divider"></div>
-    <div class="price-item"><span>Private Account</span><span>340k</span></div>
-    <details>
-      <summary>Detail</summary>
-      <div class="details-content">Aktivasi di email pribadi. 100% legal dan aman.</div>
-    </details>
-  </div>
-  
-  <div class="product-block">
-    <div class="product-header">
-      <img src="../assets/img/gemini.svg" alt="Gemini Icon" class="product-icon">
-      <div class="product-title">Gemini Advanced</div>
-    </div>
-    <div class="divider"></div>
-    <div class="price-item"><span>Upgrade Akun</span><span>120k</span></div>
-    <details>
-      <summary>Detail</summary>
-      <div class="details-content">Memerlukan akun Google pribadi untuk di-upgrade via Google One.</div>
-    </details>
-  </div>
-
-  <div class="product-block">
-    <div class="product-header">
-      <img src="../assets/img/copilot.svg" alt="Copilot Icon" class="product-icon">
-      <div class="product-title">GitHub Copilot</div>
-    </div>
-    <div class="divider"></div>
-    <div class="price-item"><span>Personal Invite</span><span>195k</span></div>
-    <details>
-      <summary>Detail</summary>
-      <div class="details-content">Aktivasi di akun GitHub pribadi. Proses cepat via undangan.</div>
-    </details>
-  </div>
-  
-  <div class="product-block">
-    <div class="product-header">
-      <img src="../assets/img/perplexity.svg" alt="Perplexity Icon" class="product-icon">
-      <div class="product-title">Perplexity Pro</div>
-    </div>
-    <div class="divider"></div>
-    <div class="price-item"><span>Bulanan</span><span>310k</span></div>
-    <div class="price-item"><span>Tahunan</span><span>3.1M</span></div>
-    <details>
-      <summary>Detail</summary>
-      <div class="details-content">Search engine cerdas dengan fitur Pro. Aktivasi di akun pribadi.</div>
-    </details>
-  </div>
+  <div id="pricelist-container"></div>
 </div>
 
 <footer class="page-footer">
@@ -293,6 +104,84 @@
         </a>
     </div>
 </footer>
+
+<script>
+// =========================================================
+// DATA PRICELIST: Edit Harga & Tambah Produk Hanya Di Sini
+// =========================================================
+const daftarProduk = [
+  {
+    nama: "ChatGPT Plus",
+    ikon: "../assets/img/chatgpt.svg",
+    harga: [
+      { jenis: "Private Account", nominal: "150k" },
+      { jenis: "Sharing Account", nominal: "50k" }
+    ],
+    detail: "Garansi penuh selama masa aktif. Dilarang mengubah data login."
+  },
+  {
+    nama: "Claude Pro",
+    ikon: "../assets/img/claude.svg",
+    harga: [
+      { jenis: "Private Account", nominal: "340k" }
+    ],
+    detail: "Aktivasi di email pribadi. 100% legal dan aman."
+  },
+  {
+    nama: "Gemini Advanced",
+    ikon: "../assets/img/gemini.svg",
+    harga: [
+      { jenis: "Upgrade Akun", nominal: "120k" }
+    ],
+    detail: "Memerlukan akun Google pribadi untuk di-upgrade via Google One."
+  },
+  {
+    nama: "GitHub Copilot",
+    ikon: "../assets/img/copilot.svg",
+    harga: [
+      { jenis: "Personal Invite", nominal: "195k" }
+    ],
+    detail: "Aktivasi di akun GitHub pribadi. Proses cepat via undangan."
+  },
+  {
+    nama: "Perplexity Pro",
+    ikon: "../assets/img/perplexity.svg",
+    harga: [
+      { jenis: "Bulanan", nominal: "310k" },
+      { jenis: "Tahunan", nominal: "3.1M" }
+    ],
+    detail: "Search engine cerdas dengan fitur Pro. Aktivasi di akun pribadi."
+  }
+];
+
+// =========================================================
+// RENDER ENGINE: Jangan diubah kecuali modifikasi layout
+// =========================================================
+const container = document.getElementById('pricelist-container');
+let htmlStruktur = '';
+
+daftarProduk.forEach(produk => {
+  let listHargaHtml = produk.harga.map(h => `
+    <div class="price-item"><span>${h.jenis}</span><span>${h.nominal}</span></div>
+  `).join('');
+
+  htmlStruktur += `
+  <div class="product-block">
+    <div class="product-header">
+      <img src="${produk.ikon}" alt="${produk.nama} Icon" class="product-icon">
+      <div class="product-title">${produk.nama}</div>
+    </div>
+    <div class="divider"></div>
+    ${listHargaHtml}
+    <details>
+      <summary>Detail</summary>
+      <div class="details-content">${produk.detail}</div>
+    </details>
+  </div>`;
+});
+
+container.innerHTML = htmlStruktur;
+</script>
 
 </body>
 </html>
