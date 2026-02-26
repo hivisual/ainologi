@@ -48,12 +48,30 @@
   .product-block { margin-bottom: 45px; }
   .product-block:last-child { margin-bottom: 0; }
   .product-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-  .product-icon { width: 20px; height: 20px; flex-shrink: 0; }
+  .product-icon { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; } /* Sedikit diperbesar agar pas */
   .product-title { font-size: 1rem; font-weight: 800; text-transform: uppercase; color: #111; }
   .divider { height: 1px; background-color: rgba(0, 0, 0, 0.8); margin-bottom: 10px; }
-  .price-item { display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; color: #111; padding: 4px 0; }
-  .price-item span:first-child { text-transform: uppercase; font-size: 0.8rem; color: #333; }
-  .price-item span:last-child { font-weight: 600; }
+  
+  .price-item { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 0.88rem; 
+    color: #111; 
+    padding: 4px 0; 
+  }
+  
+  .price-item span:first-child { 
+    text-transform: uppercase; 
+    font-size: 0.8rem; 
+    color: #333; 
+    max-width: 70%; /* Mencegah teks nabrak harga */
+  }
+  
+  .price-item span:last-child { 
+    font-weight: 600; 
+    text-align: right;
+  }
   
   /* Details & Summary */
   details { margin-top: 15px; }
@@ -94,11 +112,11 @@
 <footer class="page-footer">
     <div class="footer-title">SIAP ORDER?</div>
     <div class="cta-buttons">
-        <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20untuk%20order..." class="cta-button whatsapp" target="_blank">
+        <a href="https://wa.me/62816957050?text=Halo,%20saya%20tertarik%20untuk%20order..." class="cta-button whatsapp" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91c0-2.73-1.11-5.2-2.92-7.01zm-7.01 15.24h-.01c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42c1.56 1.56 2.42 3.62 2.42 5.82c.01 4.54-3.69 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.7-.82s-.39-.12-.56.12s-.64.82-.79.98s-.29.18-.54.06s-1.05-.38-2-1.23s-1.45-1.77-1.7-2.07s-.08-.24.08-.38c.14-.14.32-.37.48-.56c.13-.13.18-.24.27-.4s.04-.3-.02-.42c-.07-.12-.56-1.34-.76-1.84s-.4-.42-.55-.43h-.48c-.18 0-.47.06-.71.3s-.9.88-1.1 2.14s.22 2.47.45 2.65c.23.18 1.58 2.47 3.82 3.39c.54.22.97.35 1.31.45c.67.19 1.28.16 1.76.1c.54-.07 1.47-.6 1.68-1.18s.21-1.09.15-1.18c-.06-.1-.23-.16-.48-.28z"/></svg>
-            <span>Order via WhatsApp</span>
+            <span style="display:block;">Order via WhatsApp (0816957050)</span>
         </a>
-        <a href="https://t.me/usernameanda" class="cta-button telegram" target="_blank">
+        <a href="https://t.me/ainologi" class="cta-button telegram" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9.417 15.181-.397 5.584c.568 0 .814-.244 1.109-.537l2.663-2.545l5.518 4.041c1.012.564 1.725.267 1.998-.931L22.03 3.216c.346-1.606-.474-2.345-1.274-2.032L1.22 9.151c-1.609.642-1.601 1.59.286 1.971l4.995 1.568l11.794-7.451c.568-.347.992-.162.534.186z"/></svg>
             <span>Order via Telegram</span>
         </a>
@@ -111,46 +129,52 @@
 // =========================================================
 const daftarProduk = [
   {
-    nama: "ChatGPT Plus",
+    nama: "Gemini",
+    ikon: "../assets/img/gemini.svg",
+    harga: [
+      { jenis: "Private (3 Bulan)", nominal: "19k" },
+      { jenis: "Private (1 Tahun)", nominal: "39k" },
+      { jenis: "Private Link Redeem (3 Bulan)", nominal: "10k" },
+      { jenis: "Gemini Ultra (7 Hari)", nominal: "(Habis) 139k " }
+    ],
+    detail: "Mencakup fitur-fitur unggulan seperti Veo3, Nano Banana Pro, Notebook LLM, dll"
+  },
+  {
+    nama: "ChatGPT",
     ikon: "../assets/img/chatgpt.svg",
     harga: [
-      { jenis: "Private Account", nominal: "150k" },
-      { jenis: "Sharing Account", nominal: "50k" }
+        { jenis: "Private Invite (1 Bulan)", nominal: "29k" },
+      { jenis: "Sharing (30 Hari)", nominal: "45k" },
+      { jenis: "Private (1 Bulan)", nominal: "95k" },
+      { jenis: "ChatGPT Go (1 Tahun)", nominal: "(Habis) 39k " }
     ],
-    detail: "Garansi penuh selama masa aktif. Dilarang mengubah data login."
+    detail: "Paket lengkap mulai dari sharing hemat, invite email, hingga private full access."
   },
   {
     nama: "Claude Pro",
     ikon: "../assets/img/claude.svg",
     harga: [
-      { jenis: "Private Account", nominal: "340k" }
+      { jenis: "Sharing (1 Bulan)", nominal: "85k" },
+      { jenis: "Private (1 Bulan)", nominal: "245k" }
     ],
-    detail: "Aktivasi di email pribadi. 100% legal dan aman."
-  },
-  {
-    nama: "Gemini Advanced",
-    ikon: "../assets/img/gemini.svg",
-    harga: [
-      { jenis: "Upgrade Akun", nominal: "120k" }
-    ],
-    detail: "Memerlukan akun Google pribadi untuk di-upgrade via Google One."
-  },
-  {
-    nama: "GitHub Copilot",
-    ikon: "../assets/img/copilot.svg",
-    harga: [
-      { jenis: "Personal Invite", nominal: "195k" }
-    ],
-    detail: "Aktivasi di akun GitHub pribadi. Proses cepat via undangan."
+    detail: "Akses model Claude Opus/Sonnet. Pilihan sharing atau private account."
   },
   {
     nama: "Perplexity Pro",
     ikon: "../assets/img/perplexity.svg",
     harga: [
-      { jenis: "Bulanan", nominal: "310k" },
-      { jenis: "Tahunan", nominal: "3.1M" }
+      { jenis: "Private (1 Bulan)", nominal: "19k" },
+      { jenis: "Private (1 Tahun)", nominal: "(Habis) 77k " }
     ],
-    detail: "Search engine cerdas dengan fitur Pro. Aktivasi di akun pribadi."
+    detail: "Search engine AI cerdas. Stok tahunan saat ini sedang kosong."
+  },
+  {
+    nama: "GROK",
+    ikon: "../assets/img/grok.svg", /* PERHATIAN: Pastikan file icon grok.svg sudah ada di folder assets/img */
+    harga: [
+      { jenis: "Private (7 Hari)", nominal: "29k" }
+    ],
+    detail: "Layanan Supergrok AI Private. Durasi mingguan."
   }
 ];
 
