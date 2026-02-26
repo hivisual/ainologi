@@ -48,7 +48,7 @@
   .product-block { margin-bottom: 45px; }
   .product-block:last-child { margin-bottom: 0; }
   .product-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-  .product-icon { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; } /* Sedikit diperbesar agar pas */
+  .product-icon { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; } 
   .product-title { font-size: 1rem; font-weight: 800; text-transform: uppercase; color: #111; }
   .divider { height: 1px; background-color: rgba(0, 0, 0, 0.8); margin-bottom: 10px; }
   
@@ -65,7 +65,7 @@
     text-transform: uppercase; 
     font-size: 0.8rem; 
     color: #333; 
-    max-width: 70%; /* Mencegah teks nabrak harga */
+    max-width: 70%; 
   }
   
   .price-item span:last-child { 
@@ -73,13 +73,43 @@
     text-align: right;
   }
   
-  /* Details & Summary */
+  /* Details & Summary (Untuk Detail Produk) */
   details { margin-top: 15px; }
   summary { cursor: pointer; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; color: #555; list-style: none; }
   summary::-webkit-details-marker { display: none; }
   summary::before { content: '+'; margin-right: 8px; font-weight: 800; }
   details[open] > summary::before { content: '−'; }
   .details-content { padding: 10px 0 5px 20px; font-size: 0.82rem; color: #444; line-height: 1.6; border-left: 2px solid #eee; margin-top: 8px; }
+
+  /* ========================================================= */
+  /* CSS BARU: Khusus untuk Kartu Spoiler "Premium Apps" */
+  /* ========================================================= */
+  .app-spoiler summary.card-title {
+    margin-bottom: 0; /* Menghilangkan jarak bawah saat tertutup */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    color: #111;
+  }
+  .app-spoiler summary.card-title::-webkit-details-marker {
+    display: none;
+  }
+  .app-spoiler summary.card-title::before {
+    display: none; /* Mencegah ikon '+' muncul di judul utama */
+  }
+  .app-spoiler summary.card-title::after {
+    content: '▼';
+    font-size: 1rem;
+    color: #111;
+  }
+  .app-spoiler[open] summary.card-title {
+    margin-bottom: 30px; /* Mengembalikan jarak saat kartu dibuka */
+  }
+  .app-spoiler[open] summary.card-title::after {
+    content: '▲';
+  }
 
   /* Footer Halaman */
   .page-footer { width: 100%; max-width: 340px; text-align: center; }
@@ -99,18 +129,22 @@
 <body>
 
 <header class="page-header">
-  <h1>AINOLOGI STORE</h1>
+  <h1>AINOLOGI</h1>
   <p>Layanan Akun Premium Terpercaya. Proses Cepat & Bergaransi</p>
 </header>
 
 <div class="menu-card">
-  <h1 class="card-title">PRICE LIST</h1>
-  
+  <h1 class="card-title">AI PRICE LIST</h1>
   <div id="pricelist-container"></div>
 </div>
 
+<details class="menu-card app-spoiler">
+  <summary class="card-title">APP PREMIUM LAIN</summary>
+  <div id="applist-container"></div>
+</details>
+
 <footer class="page-footer">
-    <div class="footer-title">SIAP ORDER?</div>
+    <div class="footer-title">KONTAK ORDER</div>
     <div class="cta-buttons">
         <a href="https://wa.me/62816957050?text=Halo,%20saya%20tertarik%20untuk%20order..." class="cta-button whatsapp" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91c0-2.73-1.11-5.2-2.92-7.01zm-7.01 15.24h-.01c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42c1.56 1.56 2.42 3.62 2.42 5.82c.01 4.54-3.69 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.7-.82s-.39-.12-.56.12s-.64.82-.79.98s-.29.18-.54.06s-1.05-.38-2-1.23s-1.45-1.77-1.7-2.07s-.08-.24.08-.38c.14-.14.32-.37.48-.56c.13-.13.18-.24.27-.4s.04-.3-.02-.42c-.07-.12-.56-1.34-.76-1.84s-.4-.42-.55-.43h-.48c-.18 0-.47.06-.71.3s-.9.88-1.1 2.14s.22 2.47.45 2.65c.23.18 1.58 2.47 3.82 3.39c.54.22.97.35 1.31.45c.67.19 1.28.16 1.76.1c.54-.07 1.47-.6 1.68-1.18s.21-1.09.15-1.18c-.06-.1-.23-.16-.48-.28z"/></svg>
@@ -125,7 +159,7 @@
 
 <script>
 // =========================================================
-// DATA PRICELIST: Edit Harga & Tambah Produk Hanya Di Sini
+// DATA PRICELIST 1: AI TOOLS
 // =========================================================
 const daftarProduk = [
   {
@@ -143,7 +177,7 @@ const daftarProduk = [
     nama: "ChatGPT",
     ikon: "../assets/img/chatgpt.svg",
     harga: [
-        { jenis: "Private Invite (1 Bulan)", nominal: "29k" },
+      { jenis: "Private Invite (1 Bulan)", nominal: "29k" },
       { jenis: "Sharing (30 Hari)", nominal: "45k" },
       { jenis: "Private (1 Bulan)", nominal: "95k" },
       { jenis: "ChatGPT Go (1 Tahun)", nominal: "(Habis) 39k " }
@@ -170,7 +204,7 @@ const daftarProduk = [
   },
   {
     nama: "GROK",
-    ikon: "../assets/img/grok.svg", /* PERHATIAN: Pastikan file icon grok.svg sudah ada di folder assets/img */
+    ikon: "../assets/img/grok.svg",
     harga: [
       { jenis: "Supergrok Private (7 Hari)", nominal: "29k" }
     ],
@@ -179,32 +213,139 @@ const daftarProduk = [
 ];
 
 // =========================================================
-// RENDER ENGINE: Jangan diubah kecuali modifikasi layout
+// DATA PRICELIST 2: PREMIUM APPS & VPN
 // =========================================================
-const container = document.getElementById('pricelist-container');
-let htmlStruktur = '';
+const daftarAplikasi = [
+  {
+    nama: "Capcut Pro",
+    ikon: "../assets/img/capcut.svg",
+    harga: [
+      { jenis: "Private (35 Hari)", nominal: "15k" },
+      { jenis: "Private (6 Bulan)", nominal: "39k" },
+      { jenis: "Private (12 Bulan)", nominal: "99k" }
+    ],
+    detail: "Akses penuh fitur premium editing Capcut."
+  },
+  {
+    nama: "Canva Pro",
+    ikon: "../assets/img/canva.svg",
+    harga: [
+      { jenis: "1 Bulan", nominal: "3k" },
+      { jenis: "Lifetime", nominal: "19k" }
+    ],
+    detail: "Akses desain grafis premium Canva."
+  },
+  {
+    nama: "Apple Music",
+    ikon: "../assets/img/applemusic.svg",
+    harga: [
+      { jenis: "1 Bulan", nominal: "15k" }
+    ],
+    detail: "Streaming musik bebas iklan dengan Apple Music."
+  },
+  {
+    nama: "Alight Motion",
+    ikon: "../assets/img/alightmotion.svg",
+    harga: [
+      { jenis: "1 Bulan", nominal: "15k" }
+    ],
+    detail: "Aplikasi editing video animasi premium."
+  },
+  {
+    nama: "Discord Nitro",
+    ikon: "../assets/img/discord.svg",
+    harga: [
+      { jenis: "90 Hari", nominal: "19k" }
+    ],
+    detail: "Tingkatkan pengalaman server dengan Discord Nitro."
+  },
+  {
+    nama: "GSuite",
+    ikon: "../assets/img/gsuite.svg",
+    harga: [
+      { jenis: "1 Bulan", nominal: "10k" }
+    ],
+    detail: "Layanan Google Workspace premium."
+  },
+  {
+    nama: "Google Drive",
+    ikon: "../assets/img/googledrive.svg",
+    harga: [
+      { jenis: "Lifetime (1TB)", nominal: "95k" }
+    ],
+    detail: "Penyimpanan cloud Google Drive kapasitas besar."
+  },
+  {
+    nama: "Microsoft Office 365",
+    ikon: "../assets/img/office365.svg",
+    harga: [
+      { jenis: "1 Bulan", nominal: "15k" }
+    ],
+    detail: "Lisensi premium aplikasi Microsoft Office."
+  },
+  {
+    nama: "YouTube Premium",
+    ikon: "../assets/img/youtube.svg",
+    harga: [
+      { jenis: "1 Bulan", nominal: "15k" }
+    ],
+    detail: "Streaming YouTube dan YouTube Music tanpa iklan."
+  },
+  {
+    nama: "Zoom",
+    ikon: "../assets/img/zoom.svg",
+    harga: [
+      { jenis: "1 Bulan", nominal: "15k" }
+    ],
+    detail: "Akses akun Zoom meeting pro tanpa batas waktu."
+  },
+  {
+    nama: "VPN Premium",
+    ikon: "../assets/img/vpn.svg",
+    harga: [
+      { jenis: "Express (1 Bulan)", nominal: "15k" },
+      { jenis: "HMA (1 Bulan)", nominal: "15k" },
+      { jenis: "Surfshark Code (2 Bulan)", nominal: "19k" },
+      { jenis: "Surfshark Pro (2 Bulan)", nominal: "25k" }
+    ],
+    detail: "Pilihan layanan VPN cepat dan aman."
+  }
+];
 
-daftarProduk.forEach(produk => {
-  let listHargaHtml = produk.harga.map(h => `
-    <div class="price-item"><span>${h.jenis}</span><span>${h.nominal}</span></div>
-  `).join('');
+// =========================================================
+// RENDER ENGINE (MERENDER KEDUA KARTU)
+// =========================================================
+const renderProduk = (data, containerId) => {
+  const container = document.getElementById(containerId);
+  let htmlStruktur = '';
 
-  htmlStruktur += `
-  <div class="product-block">
-    <div class="product-header">
-      <img src="${produk.ikon}" alt="${produk.nama} Icon" class="product-icon">
-      <div class="product-title">${produk.nama}</div>
-    </div>
-    <div class="divider"></div>
-    ${listHargaHtml}
-    <details>
-      <summary>Detail</summary>
-      <div class="details-content">${produk.detail}</div>
-    </details>
-  </div>`;
-});
+  data.forEach(produk => {
+    let listHargaHtml = produk.harga.map(h => `
+      <div class="price-item"><span>${h.jenis}</span><span>${h.nominal}</span></div>
+    `).join('');
 
-container.innerHTML = htmlStruktur;
+    htmlStruktur += `
+    <div class="product-block">
+      <div class="product-header">
+        <img src="${produk.ikon}" alt="${produk.nama} Icon" class="product-icon">
+        <div class="product-title">${produk.nama}</div>
+      </div>
+      <div class="divider"></div>
+      ${listHargaHtml}
+      <details>
+        <summary>Detail</summary>
+        <div class="details-content">${produk.detail}</div>
+      </details>
+    </div>`;
+  });
+
+  container.innerHTML = htmlStruktur;
+};
+
+// Eksekusi render untuk AI Tools dan Premium Apps
+renderProduk(daftarProduk, 'pricelist-container');
+renderProduk(daftarAplikasi, 'applist-container');
+
 </script>
 
 </body>
